@@ -96,6 +96,7 @@ const CORRECT_HAZARD_POINTS = 10;
 const HINT_PENALTY = 5;
 const LOCAL_RESULTS_KEY = "laboriaSafetyRushResults";
 const MAX_LOCAL_RESULTS = 100;
+const LIVE_APP_URL = "https://laboria-safety-rush.vercel.app";
 
 const difficulties: Record<
   DifficultyId,
@@ -1105,7 +1106,13 @@ function Header({ onHome, onLeaderboard }: { onHome: () => void; onLeaderboard: 
           <h1 className="text-xl font-black tracking-tight text-[#DFF6FF] sm:text-3xl">Safety Rush</h1>
         </div>
       </button>
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-end gap-2">
+        <a
+          className="min-h-10 rounded-lg border border-[#6FD3FF]/30 bg-[#06111F]/60 px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#DFF6FF] transition hover:bg-[#0A3D78]/55 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/20 sm:px-4"
+          href="mailto:Laboriahse@gmail.com?subject=LABORIA%20Safety%20Rush%20Inquiry&body=Hello%20LABORIA%20team%2C%0A%0AI%20am%20interested%20in%20LABORIA%20Safety%20Rush.%0A%0APlease%20contact%20me%20with%20more%20information."
+        >
+          Contact LABORIA
+        </a>
         <button
           className="min-h-10 rounded-lg border border-[#6FD3FF]/30 bg-[#0A3D78]/30 px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#DFF6FF] transition hover:bg-[#0A3D78]/55 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/20 sm:px-4"
           onClick={onLeaderboard}
@@ -1418,26 +1425,26 @@ function HomeScreen({
             </div>
           </div>
 
-          <div className="self-end rounded-2xl border border-[#6FD3FF]/24 bg-[#06111F]/80 p-3 text-left shadow-[0_0_42px_rgba(111,211,255,0.13)] backdrop-blur-xl">
-            <div className="flex items-center justify-between gap-3">
+          <div className="flex min-h-0 flex-col self-end overflow-hidden rounded-2xl border border-[#6FD3FF]/24 bg-[#06111F]/80 p-2.5 text-left shadow-[0_0_42px_rgba(111,211,255,0.13)] backdrop-blur-xl sm:p-3 lg:max-h-full lg:p-2.5 xl:p-3">
+            <div className="flex flex-shrink-0 items-center justify-between gap-3">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#6FD3FF]">Start Inspection</p>
-                <h3 className="mt-0.5 text-xl font-black text-[#DFF6FF]">Mission setup</h3>
+                <h3 className="mt-0.5 text-lg font-black text-[#DFF6FF] sm:text-xl">Mission setup</h3>
               </div>
               <p className="text-right text-xs font-semibold text-[#9FC3DD]">
                 {selectedSettings.seconds}s · -{selectedSettings.wrongClickPenalty} penalty
               </p>
             </div>
 
-            <div className="mt-2">
+            <div className="mt-1.5 min-h-0 flex-shrink overflow-hidden">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9FC3DD]">Scenario</p>
-              <div className="mt-1.5 grid max-h-[132px] grid-cols-2 gap-1.5 overflow-y-auto overscroll-contain pr-1 [scrollbar-color:rgba(111,211,255,0.38)_rgba(11,29,51,0.55)] [scrollbar-width:thin] sm:grid-cols-3 lg:max-h-[138px] xl:max-h-[150px] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#6FD3FF]/35 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-[#0B1D33]/55">
+              <div className="mt-1 grid max-h-[112px] grid-cols-2 gap-1.5 overflow-y-auto overscroll-contain pr-1 [scrollbar-color:rgba(111,211,255,0.38)_rgba(11,29,51,0.55)] [scrollbar-width:thin] sm:grid-cols-3 lg:max-h-[82px] xl:max-h-[98px] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#6FD3FF]/35 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-[#0B1D33]/55">
                 {scenarios.map((scenario) => {
                   const isSelected = selectedScenarioId === scenario.id;
 
                   return (
                     <button
-                      className={`rounded-lg border px-2 py-1.5 text-left transition focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 ${
+                      className={`rounded-lg border px-2 py-1.5 text-left transition focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 lg:py-1 ${
                         isSelected
                           ? "border-[#6FD3FF]/65 bg-[#0A3D78]/58 text-[#DFF6FF]"
                           : "border-[#6FD3FF]/14 bg-[#0B1D33]/58 text-[#9FC3DD] hover:border-[#6FD3FF]/34 hover:bg-[#0A3D78]/25"
@@ -1462,72 +1469,76 @@ function HomeScreen({
               </div>
             </div>
 
-            <div className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <label className="block">
-                <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#9FC3DD]">Name</span>
-                <input
-                  className="mt-0.5 min-h-11 w-full rounded-lg border border-[#6FD3FF]/20 bg-[#0B1D33]/72 px-3 py-2 text-sm font-semibold text-[#DFF6FF] outline-none transition placeholder:text-[#9FC3DD]/55 focus:border-[#6FD3FF]/55 focus:ring-4 focus:ring-[#6FD3FF]/15 sm:min-h-0"
-                  onChange={(event) => onPlayerNameChange(event.target.value)}
-                  placeholder="Enter name"
-                  type="text"
-                  value={playerName}
-                />
-              </label>
-              <label className="block">
-                <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#9FC3DD]">Surname</span>
-                <input
-                  className="mt-0.5 min-h-11 w-full rounded-lg border border-[#6FD3FF]/20 bg-[#0B1D33]/72 px-3 py-2 text-sm font-semibold text-[#DFF6FF] outline-none transition placeholder:text-[#9FC3DD]/55 focus:border-[#6FD3FF]/55 focus:ring-4 focus:ring-[#6FD3FF]/15 sm:min-h-0"
-                  onChange={(event) => onPlayerSurnameChange(event.target.value)}
-                  placeholder="Enter surname"
-                  type="text"
-                  value={playerSurname}
-                />
-              </label>
-            </div>
-
-            <div className="mt-2">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9FC3DD]">Difficulty</p>
-              <div className="mt-1.5 grid grid-cols-3 gap-1.5">
-                {difficultyOptions.map(([difficultyId, option]) => {
-                  const isSelected = selectedDifficulty === difficultyId;
-
-                  return (
-                    <button
-                      className={`min-h-11 rounded-lg border px-2 py-1.5 text-center transition focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:min-h-0 ${
-                        isSelected
-                          ? "border-[#6FD3FF]/65 bg-[#0A3D78]/58 text-[#DFF6FF]"
-                          : "border-[#6FD3FF]/14 bg-[#0B1D33]/58 text-[#9FC3DD] hover:border-[#6FD3FF]/34 hover:bg-[#0A3D78]/25"
-                      }`}
-                      key={difficultyId}
-                      onClick={() => onDifficultyChange(difficultyId)}
-                      type="button"
-                    >
-                      <span className="block text-xs font-black text-[#DFF6FF]">{option.label}</span>
-                      <span className="block text-[10px] leading-4">{option.seconds}s</span>
-                    </button>
-                  );
-                })}
+            <div className="mt-1.5 flex-shrink-0">
+              <div className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <label className="block">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#9FC3DD]">Name</span>
+                  <input
+                    className="mt-0.5 min-h-11 w-full rounded-lg border border-[#6FD3FF]/20 bg-[#0B1D33]/72 px-3 py-2 text-sm font-semibold text-[#DFF6FF] outline-none transition placeholder:text-[#9FC3DD]/55 focus:border-[#6FD3FF]/55 focus:ring-4 focus:ring-[#6FD3FF]/15 sm:min-h-0 lg:py-1"
+                    onChange={(event) => onPlayerNameChange(event.target.value)}
+                    placeholder="Enter name"
+                    type="text"
+                    value={playerName}
+                  />
+                </label>
+                <label className="block">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#9FC3DD]">Surname</span>
+                  <input
+                    className="mt-0.5 min-h-11 w-full rounded-lg border border-[#6FD3FF]/20 bg-[#0B1D33]/72 px-3 py-2 text-sm font-semibold text-[#DFF6FF] outline-none transition placeholder:text-[#9FC3DD]/55 focus:border-[#6FD3FF]/55 focus:ring-4 focus:ring-[#6FD3FF]/15 sm:min-h-0 lg:py-1"
+                    onChange={(event) => onPlayerSurnameChange(event.target.value)}
+                    placeholder="Enter surname"
+                    type="text"
+                    value={playerSurname}
+                  />
+                </label>
               </div>
-            </div>
 
-            {validationMessage && (
-              <p className="mt-2 rounded-lg border border-[#FF6B6B]/30 bg-[#FF6B6B]/10 p-2 text-sm font-bold text-[#FFD6D6]">
-                {validationMessage}
+              <div className="mt-1.5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9FC3DD]">Difficulty</p>
+                <div className="mt-1 grid grid-cols-3 gap-1.5">
+                  {difficultyOptions.map(([difficultyId, option]) => {
+                    const isSelected = selectedDifficulty === difficultyId;
+
+                    return (
+                      <button
+                        className={`min-h-11 rounded-lg border px-2 py-1.5 text-center transition focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:min-h-0 lg:py-1 ${
+                          isSelected
+                            ? "border-[#6FD3FF]/65 bg-[#0A3D78]/58 text-[#DFF6FF]"
+                            : "border-[#6FD3FF]/14 bg-[#0B1D33]/58 text-[#9FC3DD] hover:border-[#6FD3FF]/34 hover:bg-[#0A3D78]/25"
+                        }`}
+                        key={difficultyId}
+                        onClick={() => onDifficultyChange(difficultyId)}
+                        type="button"
+                      >
+                        <span className="block text-xs font-black text-[#DFF6FF]">{option.label}</span>
+                        <span className="block text-[10px] leading-4">{option.seconds}s</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="mt-1.5 min-h-8">
+                {validationMessage && (
+                  <p className="rounded-lg border border-[#FF6B6B]/30 bg-[#FF6B6B]/10 px-2 py-1 text-xs font-bold leading-5 text-[#FFD6D6]">
+                    {validationMessage}
+                  </p>
+                )}
+              </div>
+
+              <p className="mt-1 rounded-lg border border-[#6FD3FF]/18 bg-[#0B1D33]/55 px-2 py-1.5 text-xs font-bold text-[#DFF6FF]">
+                {targetToBeat
+                  ? `Target to beat: ${targetToBeat.scorePercentage}% by ${formatPlayerName(targetToBeat)}`
+                  : "No record yet — be the first to set one."}
               </p>
-            )}
 
-            <p className="mt-2 rounded-lg border border-[#6FD3FF]/18 bg-[#0B1D33]/55 p-2 text-xs font-bold text-[#DFF6FF]">
-              {targetToBeat
-                ? `Target to beat: ${targetToBeat.scorePercentage}% by ${formatPlayerName(targetToBeat)}`
-                : "No record yet — be the first to set one."}
-            </p>
-
-            <button
-              className="mt-2 min-h-11 w-full rounded-lg bg-[#6FD3FF] px-6 py-2.5 text-sm font-black text-[#06111F] shadow-[0_18px_60px_rgba(111,211,255,0.2)] transition hover:bg-[#DFF6FF] focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/35 sm:min-h-0"
-              onClick={onStart}
-            >
-              Start Challenge
-            </button>
+              <button
+                className="mt-1.5 min-h-11 w-full rounded-lg bg-[#6FD3FF] px-6 py-2.5 text-sm font-black text-[#06111F] shadow-[0_18px_60px_rgba(111,211,255,0.2)] transition hover:bg-[#DFF6FF] focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/35 sm:min-h-0 lg:py-2"
+                onClick={onStart}
+              >
+                Start Inspection
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -2033,10 +2044,10 @@ function ResultsScreen({
   wrongClicks: number;
 }) {
   const [showReview, setShowReview] = useState(false);
-  const [contactMessage, setContactMessage] = useState("");
   const [copyMessage, setCopyMessage] = useState("");
   const [copyFallbackText, setCopyFallbackText] = useState("");
   const [downloadMessage, setDownloadMessage] = useState("");
+  const [isSharePanelOpen, setIsSharePanelOpen] = useState(false);
   const totalHazards = scenario.hazards.length;
   const timeBonus = getTimeBonus(timeLeft);
   const maxTotalScore = getMaxTotalScore(selectedDifficulty, totalHazards);
@@ -2052,6 +2063,7 @@ function ResultsScreen({
     [],
   );
   const foundHazardDetails = scenario.hazards.filter((hazard) => foundHazards.includes(hazard.id));
+  const finalShareText = `I scored ${scorePercentage}% in LABORIA Safety Rush — ${scenario.title} (${selectedDifficulty.label}) and earned ${rank}.\n\nCan you beat me? Play here:\n${LIVE_APP_URL}`;
 
   async function downloadResultSummary() {
     await downloadResultPdf({
@@ -2074,16 +2086,35 @@ function ResultsScreen({
   }
 
   async function copyResultText() {
-    const resultText = `I scored ${scorePercentage}% in LABORIA Safety Rush — ${scenario.title} (${selectedDifficulty.label}). Can you beat me?`;
-
     setCopyFallbackText("");
 
     try {
-      await navigator.clipboard.writeText(resultText);
+      await navigator.clipboard.writeText(finalShareText);
       setCopyMessage("Result copied!");
     } catch {
       setCopyMessage("Copy unavailable. Select the text below.");
-      setCopyFallbackText(resultText);
+      setCopyFallbackText(finalShareText);
+    }
+  }
+
+  async function shareResult() {
+    if (!navigator.share) {
+      setIsSharePanelOpen(true);
+      return;
+    }
+
+    try {
+      await navigator.share({
+        title: "LABORIA Safety Rush Result",
+        text: finalShareText,
+        url: LIVE_APP_URL,
+      });
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
+        return;
+      }
+
+      setIsSharePanelOpen(true);
     }
   }
 
@@ -2161,21 +2192,19 @@ function ResultsScreen({
           </button>
           <button
             className="min-h-11 w-full rounded-lg border border-[#6FD3FF]/40 bg-[#0A3D78]/30 px-5 py-2.5 text-sm font-black text-[#DFF6FF] transition hover:bg-[#0A3D78]/55 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:min-h-0 sm:w-auto"
-            onClick={() =>
-              setContactMessage(
-                "Contact form coming soon. LABORIA can help your team improve workplace safety systems.",
-              )
-            }
+            onClick={shareResult}
             type="button"
           >
-            Contact LABORIA
+            Share Result
           </button>
         </div>
 
-        {contactMessage && (
-          <p className="mx-auto mt-4 max-w-2xl rounded-lg border border-[#6FD3FF]/20 bg-[#0A3D78]/25 p-3 text-sm leading-6 text-[#DFF6FF]">
-            {contactMessage}
-          </p>
+        {isSharePanelOpen && (
+          <ShareOptionsPanel
+            onClose={() => setIsSharePanelOpen(false)}
+            onCopy={copyResultText}
+            shareText={finalShareText}
+          />
         )}
 
         {copyMessage && (
@@ -2224,6 +2253,86 @@ function ResultMetric({ detail, label, value }: { detail?: string; label: string
       <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9FC3DD]">{label}</p>
       <p className="mt-1.5 break-words text-xl font-black leading-none text-[#6FD3FF] sm:text-3xl">{value}</p>
       {detail && <p className="mt-1.5 text-[11px] font-semibold text-[#9FC3DD]">{detail}</p>}
+    </div>
+  );
+}
+
+function ShareOptionsPanel({
+  onClose,
+  onCopy,
+  shareText,
+}: {
+  onClose: () => void;
+  onCopy: () => void;
+  shareText: string;
+}) {
+  const encodedShareText = encodeURIComponent(shareText);
+  const encodedAppUrl = encodeURIComponent(LIVE_APP_URL);
+  const shareOptions = [
+    {
+      href: `https://wa.me/?text=${encodedShareText}`,
+      label: "WhatsApp",
+    },
+    {
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodedAppUrl}`,
+      label: "Facebook",
+    },
+    {
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedAppUrl}`,
+      label: "LinkedIn",
+    },
+  ];
+
+  return (
+    <div
+      aria-modal="true"
+      className="fixed inset-0 z-50 grid place-items-center bg-[#06111F]/80 px-3 py-5 backdrop-blur-sm"
+      role="dialog"
+    >
+      <div className="w-full max-w-md rounded-xl border border-[#6FD3FF]/25 bg-[#0B1D33] p-4 text-left shadow-[0_0_54px_rgba(111,211,255,0.16)] ring-1 ring-[#DFF6FF]/8 sm:p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#6FD3FF]">Share Result</p>
+            <h3 className="mt-2 text-2xl font-black text-[#DFF6FF]">Challenge your network</h3>
+          </div>
+          <button
+            className="rounded-lg border border-[#6FD3FF]/35 bg-[#06111F]/60 px-3 py-2 text-sm font-black text-[#DFF6FF] transition hover:bg-[#0A3D78]/45 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/20"
+            onClick={onClose}
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+
+        <p className="mt-3 rounded-lg border border-[#6FD3FF]/15 bg-[#06111F]/55 p-3 text-sm leading-6 text-[#DFF6FF]">
+          {shareText}
+        </p>
+
+        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+          {shareOptions.map((option) => (
+            <a
+              className="min-h-11 rounded-lg border border-[#6FD3FF]/40 bg-[#0A3D78]/30 px-4 py-2.5 text-center text-sm font-black text-[#DFF6FF] transition hover:bg-[#0A3D78]/55 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25"
+              href={option.href}
+              key={option.label}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {option.label}
+            </a>
+          ))}
+          <button
+            className="min-h-11 rounded-lg bg-[#6FD3FF] px-4 py-2.5 text-sm font-black text-[#06111F] transition hover:bg-[#DFF6FF] focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/35 sm:col-span-2"
+            onClick={onCopy}
+            type="button"
+          >
+            Copy Result
+          </button>
+        </div>
+
+        <p className="mt-3 text-xs leading-5 text-[#9FC3DD]">
+          Facebook and LinkedIn may only share the game link. For Instagram, copy the result text and share it manually.
+        </p>
+      </div>
     </div>
   );
 }
