@@ -1002,8 +1002,8 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#06111F] text-[#DFF6FF]">
-      <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-3 py-3 sm:px-6 sm:py-5 lg:px-8">
+    <main className="min-h-[100svh] overflow-x-hidden bg-[#06111F] text-[#DFF6FF]">
+      <div className="mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 sm:py-5 lg:px-8">
         <Header onHome={handleHomeRequest} onLeaderboard={() => setIsLeaderboardOpen(true)} />
 
         {phase === "home" && (
@@ -1091,7 +1091,7 @@ export default function Home() {
 
 function Header({ onHome, onLeaderboard }: { onHome: () => void; onLeaderboard: () => void }) {
   return (
-    <header className="flex flex-wrap items-center justify-between gap-2 border-b border-[#6FD3FF]/15 pb-2 sm:gap-3 sm:pb-3">
+    <header className="max-sm:sticky max-sm:top-0 max-sm:z-40 max-sm:-mx-3 max-sm:border-b max-sm:border-[#6FD3FF]/15 max-sm:bg-[#06111F]/92 max-sm:px-3 max-sm:pb-2 max-sm:pt-[max(0.5rem,env(safe-area-inset-top))] max-sm:backdrop-blur-xl flex flex-wrap items-center justify-between gap-2 border-b border-[#6FD3FF]/15 pb-2 sm:gap-3 sm:pb-3">
       <button
         aria-label="Return to LABORIA Safety Rush home"
         className="-m-2 flex min-w-0 items-center gap-2 rounded-xl p-2 text-left transition hover:bg-[#6FD3FF]/8 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/20 sm:gap-3"
@@ -1106,22 +1106,23 @@ function Header({ onHome, onLeaderboard }: { onHome: () => void; onLeaderboard: 
           <h1 className="text-xl font-black tracking-tight text-[#DFF6FF] sm:text-3xl">Safety Rush</h1>
         </div>
       </button>
-      <div className="flex flex-wrap items-center justify-end gap-2">
+      <div className="mt-2 grid w-full grid-cols-3 gap-1.5 sm:mt-0 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:justify-end sm:gap-2">
         <a
-          className="min-h-10 rounded-lg border border-[#6FD3FF]/30 bg-[#06111F]/60 px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#DFF6FF] transition hover:bg-[#0A3D78]/55 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/20 sm:px-4"
+          className="grid min-h-10 place-items-center rounded-lg border border-[#6FD3FF]/30 bg-[#06111F]/60 px-2 py-2 text-center text-[10px] font-black uppercase tracking-[0.08em] text-[#DFF6FF] transition hover:bg-[#0A3D78]/55 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/20 sm:px-4 sm:text-xs sm:tracking-[0.12em]"
           href="mailto:Laboriahse@gmail.com?subject=LABORIA%20Safety%20Rush%20Inquiry&body=Hello%20LABORIA%20team%2C%0A%0AI%20am%20interested%20in%20LABORIA%20Safety%20Rush.%0A%0APlease%20contact%20me%20with%20more%20information."
         >
           Contact LABORIA
         </a>
         <button
-          className="min-h-10 rounded-lg border border-[#6FD3FF]/30 bg-[#0A3D78]/30 px-3 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#DFF6FF] transition hover:bg-[#0A3D78]/55 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/20 sm:px-4"
+          className="min-h-10 rounded-lg border border-[#6FD3FF]/30 bg-[#0A3D78]/30 px-2 py-2 text-[10px] font-black uppercase tracking-[0.08em] text-[#DFF6FF] transition hover:bg-[#0A3D78]/55 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/20 sm:px-4 sm:text-xs sm:tracking-[0.12em]"
           onClick={onLeaderboard}
           type="button"
         >
           Leaderboard
         </button>
-        <div className="hidden rounded-full border border-[#6FD3FF]/35 bg-[#0A3D78]/35 px-4 py-2 text-sm font-semibold text-[#DFF6FF] shadow-lg shadow-[#03101d]/30 sm:block">
-          Interactive HS Training
+        <div className="grid min-h-10 place-items-center rounded-lg border border-[#6FD3FF]/35 bg-[#0A3D78]/35 px-2 py-2 text-center text-[10px] font-black uppercase tracking-[0.08em] text-[#DFF6FF] shadow-lg shadow-[#03101d]/30 sm:rounded-full sm:px-4 sm:text-sm sm:font-semibold sm:normal-case sm:tracking-normal">
+          <span className="sm:hidden">HS Training</span>
+          <span className="hidden sm:inline">Interactive HS Training</span>
         </div>
       </div>
     </header>
@@ -1377,7 +1378,7 @@ function HomeScreen({
   }, [displayedScenario.id, selectedScenario]);
 
   return (
-    <section className="relative flex flex-1 items-stretch overflow-visible py-2 sm:py-2 lg:h-[calc(100vh-136px)] lg:min-h-[540px] lg:max-h-[630px] lg:overflow-hidden lg:py-1.5">
+    <section className="relative flex flex-1 items-stretch overflow-visible py-3 sm:py-2 lg:h-[calc(100vh-136px)] lg:min-h-[540px] lg:max-h-[630px] lg:overflow-hidden lg:py-1.5">
       <div className="absolute inset-0 -z-10">
         <Image
           alt=""
@@ -1390,24 +1391,24 @@ function HomeScreen({
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(111,211,255,0.16),transparent_34%),linear-gradient(180deg,rgba(6,17,31,0.42),#06111F_88%)]" />
       </div>
 
-      <div className="mx-auto grid w-full max-w-7xl gap-3 lg:h-full lg:grid-rows-[auto_minmax(0,1fr)]">
+      <div className="mx-auto grid w-full max-w-7xl gap-4 sm:gap-3 lg:h-full lg:grid-rows-[auto_minmax(0,1fr)]">
         <div className="mx-auto max-w-5xl text-center">
           <div
             className={`inline-flex rounded-full border border-[#6FD3FF]/30 bg-[#06111F]/55 px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6FD3FF] shadow-lg shadow-[#03101d]/30 transition-all duration-300 ease-out motion-reduce:translate-y-0 motion-reduce:transition-none ${scenarioTransitionClass}`}
           >
             {displayedScenario.title} Safety Challenge
           </div>
-          <h2 className="mx-auto mt-1.5 max-w-4xl text-[30px] font-black leading-[1.04] text-[#DFF6FF] sm:text-[42px] sm:leading-[1.02] lg:text-[46px]">
+          <h2 className="mx-auto mt-2 max-w-4xl text-[34px] font-black leading-[1.02] text-[#DFF6FF] sm:mt-1.5 sm:text-[42px] lg:text-[46px]">
             Spot hazards before the clock runs out.
           </h2>
-          <p className="mx-auto mt-1.5 max-w-2xl text-[13px] leading-5 text-[#DFF6FF]/76 sm:text-sm">
+          <p className="mx-auto mt-2 max-w-2xl text-sm leading-5 text-[#DFF6FF]/76 sm:mt-1.5">
             Choose a scenario, set the challenge level, and test your visual HS inspection discipline in a timed safety
             rush.
           </p>
         </div>
 
-        <div className="grid min-h-0 gap-3 lg:grid-cols-[minmax(0,1fr)_410px] lg:items-stretch xl:grid-cols-[minmax(0,1fr)_440px]">
-          <div className="min-h-[220px] overflow-hidden rounded-2xl border border-[#6FD3FF]/18 bg-[#0B1D33]/55 p-2 shadow-2xl shadow-[#03101d]/50 backdrop-blur-md sm:min-h-[260px] lg:min-h-0">
+        <div className="grid min-h-0 gap-4 sm:gap-3 lg:grid-cols-[minmax(0,1fr)_410px] lg:items-stretch xl:grid-cols-[minmax(0,1fr)_440px]">
+          <div className="min-h-[250px] overflow-hidden rounded-2xl border border-[#6FD3FF]/18 bg-[#0B1D33]/55 p-2 shadow-2xl shadow-[#03101d]/50 backdrop-blur-md sm:min-h-[260px] lg:min-h-0">
             <div className="relative h-full overflow-hidden rounded-xl">
               <div
                 className={`h-full transition-all duration-300 ease-out motion-reduce:translate-y-0 motion-reduce:transition-none ${scenarioTransitionClass}`}
@@ -1425,7 +1426,7 @@ function HomeScreen({
             </div>
           </div>
 
-          <div className="flex min-h-0 flex-col self-end overflow-hidden rounded-2xl border border-[#6FD3FF]/24 bg-[#06111F]/80 p-2.5 text-left shadow-[0_0_42px_rgba(111,211,255,0.13)] backdrop-blur-xl sm:p-3 lg:max-h-full lg:p-2.5 xl:p-3">
+          <div className="flex min-h-0 flex-col self-end overflow-hidden rounded-2xl border border-[#6FD3FF]/24 bg-[#06111F]/80 p-3 text-left shadow-[0_0_42px_rgba(111,211,255,0.13)] backdrop-blur-xl lg:max-h-full lg:p-2.5 xl:p-3">
             <div className="flex flex-shrink-0 items-center justify-between gap-3">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#6FD3FF]">Start Inspection</p>
@@ -1438,13 +1439,13 @@ function HomeScreen({
 
             <div className="mt-1.5 min-h-0 flex-shrink overflow-hidden">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9FC3DD]">Scenario</p>
-              <div className="mt-1 grid max-h-[112px] grid-cols-2 gap-1.5 overflow-y-auto overscroll-contain pr-1 [scrollbar-color:rgba(111,211,255,0.38)_rgba(11,29,51,0.55)] [scrollbar-width:thin] sm:grid-cols-3 lg:max-h-[82px] xl:max-h-[98px] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#6FD3FF]/35 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-[#0B1D33]/55">
+              <div className="mt-1 grid max-h-[172px] grid-cols-2 gap-1.5 overflow-y-auto overscroll-contain pr-1 [scrollbar-color:rgba(111,211,255,0.38)_rgba(11,29,51,0.55)] [scrollbar-width:thin] sm:max-h-[132px] sm:grid-cols-3 lg:max-h-[82px] xl:max-h-[98px] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#6FD3FF]/35 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-[#0B1D33]/55">
                 {scenarios.map((scenario) => {
                   const isSelected = selectedScenarioId === scenario.id;
 
                   return (
                     <button
-                      className={`rounded-lg border px-2 py-1.5 text-left transition focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 lg:py-1 ${
+                      className={`min-h-12 rounded-lg border px-2 py-2 text-left transition focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:min-h-0 sm:py-1.5 lg:py-1 ${
                         isSelected
                           ? "border-[#6FD3FF]/65 bg-[#0A3D78]/58 text-[#DFF6FF]"
                           : "border-[#6FD3FF]/14 bg-[#0B1D33]/58 text-[#9FC3DD] hover:border-[#6FD3FF]/34 hover:bg-[#0A3D78]/25"
@@ -1474,7 +1475,7 @@ function HomeScreen({
                 <label className="block">
                   <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#9FC3DD]">Name</span>
                   <input
-                    className="mt-0.5 min-h-11 w-full rounded-lg border border-[#6FD3FF]/20 bg-[#0B1D33]/72 px-3 py-2 text-sm font-semibold text-[#DFF6FF] outline-none transition placeholder:text-[#9FC3DD]/55 focus:border-[#6FD3FF]/55 focus:ring-4 focus:ring-[#6FD3FF]/15 sm:min-h-0 lg:py-1"
+                    className="mt-0.5 min-h-12 w-full rounded-lg border border-[#6FD3FF]/20 bg-[#0B1D33]/72 px-3 py-2 text-sm font-semibold text-[#DFF6FF] outline-none transition placeholder:text-[#9FC3DD]/55 focus:border-[#6FD3FF]/55 focus:ring-4 focus:ring-[#6FD3FF]/15 sm:min-h-0 lg:py-1"
                     onChange={(event) => onPlayerNameChange(event.target.value)}
                     placeholder="Enter name"
                     type="text"
@@ -1484,7 +1485,7 @@ function HomeScreen({
                 <label className="block">
                   <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#9FC3DD]">Surname</span>
                   <input
-                    className="mt-0.5 min-h-11 w-full rounded-lg border border-[#6FD3FF]/20 bg-[#0B1D33]/72 px-3 py-2 text-sm font-semibold text-[#DFF6FF] outline-none transition placeholder:text-[#9FC3DD]/55 focus:border-[#6FD3FF]/55 focus:ring-4 focus:ring-[#6FD3FF]/15 sm:min-h-0 lg:py-1"
+                    className="mt-0.5 min-h-12 w-full rounded-lg border border-[#6FD3FF]/20 bg-[#0B1D33]/72 px-3 py-2 text-sm font-semibold text-[#DFF6FF] outline-none transition placeholder:text-[#9FC3DD]/55 focus:border-[#6FD3FF]/55 focus:ring-4 focus:ring-[#6FD3FF]/15 sm:min-h-0 lg:py-1"
                     onChange={(event) => onPlayerSurnameChange(event.target.value)}
                     placeholder="Enter surname"
                     type="text"
@@ -1501,7 +1502,7 @@ function HomeScreen({
 
                     return (
                       <button
-                        className={`min-h-11 rounded-lg border px-2 py-1.5 text-center transition focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:min-h-0 lg:py-1 ${
+                        className={`min-h-12 rounded-lg border px-2 py-1.5 text-center transition focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:min-h-0 lg:py-1 ${
                           isSelected
                             ? "border-[#6FD3FF]/65 bg-[#0A3D78]/58 text-[#DFF6FF]"
                             : "border-[#6FD3FF]/14 bg-[#0B1D33]/58 text-[#9FC3DD] hover:border-[#6FD3FF]/34 hover:bg-[#0A3D78]/25"
@@ -1533,7 +1534,7 @@ function HomeScreen({
               </p>
 
               <button
-                className="mt-1.5 min-h-11 w-full rounded-lg bg-[#6FD3FF] px-6 py-2.5 text-sm font-black text-[#06111F] shadow-[0_18px_60px_rgba(111,211,255,0.2)] transition hover:bg-[#DFF6FF] focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/35 sm:min-h-0 lg:py-2"
+                className="mt-1.5 min-h-12 w-full rounded-lg bg-[#6FD3FF] px-6 py-3 text-sm font-black text-[#06111F] shadow-[0_18px_60px_rgba(111,211,255,0.2)] transition hover:bg-[#DFF6FF] focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/35 sm:min-h-0 sm:py-2.5 lg:py-2"
                 onClick={onStart}
               >
                 Start Inspection
@@ -1684,7 +1685,7 @@ function GameScreen({
   const isTimerUrgent = timeLeft <= 10;
 
   return (
-    <section className="grid flex-1 gap-4 py-4 sm:gap-5 sm:py-5 lg:grid-cols-[1fr_320px]">
+    <section className="grid flex-1 gap-4 py-3 sm:gap-5 sm:py-5 lg:grid-cols-[1fr_320px]">
       <div className="min-w-0">
         <div className="mb-3 flex flex-wrap items-start justify-between gap-3 sm:mb-4">
           <div className="min-w-0">
@@ -1695,16 +1696,16 @@ function GameScreen({
               Find all {scenario.hazards.length} clickable hazards
             </h2>
           </div>
-          <div className="flex w-full flex-wrap gap-2 sm:w-auto">
+          <div className="grid w-full grid-cols-3 gap-2 sm:flex sm:w-auto sm:flex-wrap">
             <button
-              className="min-h-11 flex-1 rounded-lg border border-[#6FD3FF]/20 bg-[#06111F]/60 px-3 py-2.5 text-center text-xs font-black text-[#DFF6FF] transition hover:bg-[#0A3D78]/45 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:flex-none sm:px-4 sm:py-3"
+              className="col-span-2 min-h-11 rounded-lg border border-[#6FD3FF]/20 bg-[#06111F]/60 px-3 py-2.5 text-center text-xs font-black text-[#DFF6FF] transition hover:bg-[#0A3D78]/45 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:flex-none sm:px-4 sm:py-3"
               onClick={onRestartRequest}
               type="button"
             >
               Restart Challenge
             </button>
             <button
-              className="min-h-11 flex-1 rounded-lg border border-[#6FD3FF]/20 bg-[#06111F]/60 px-3 py-2.5 text-center text-xs font-black text-[#DFF6FF] transition hover:bg-[#0A3D78]/45 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:flex-none sm:px-4 sm:py-3"
+              className="min-h-11 rounded-lg border border-[#6FD3FF]/20 bg-[#06111F]/60 px-3 py-2.5 text-center text-xs font-black text-[#DFF6FF] transition hover:bg-[#0A3D78]/45 focus:outline-none focus:ring-4 focus:ring-[#6FD3FF]/25 sm:flex-none sm:px-4 sm:py-3"
               onClick={onSoundToggle}
               type="button"
             >
@@ -1751,10 +1752,10 @@ function GameScreen({
         >
           Use Hint ({hintsRemaining} left)
         </button>
-        <div className="mt-4 grid max-h-64 grid-cols-1 gap-2 overflow-y-auto pr-1 text-xs [scrollbar-color:rgba(111,211,255,0.38)_rgba(11,29,51,0.55)] [scrollbar-width:thin] sm:mt-5 sm:grid-cols-2 lg:max-h-none lg:grid-cols-1 lg:overflow-visible lg:pr-0 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#6FD3FF]/35 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-[#0B1D33]/55">
+        <div className="mt-4 grid max-h-72 grid-cols-1 gap-2 overflow-y-auto pr-1 text-sm [scrollbar-color:rgba(111,211,255,0.38)_rgba(11,29,51,0.55)] [scrollbar-width:thin] sm:mt-5 sm:grid-cols-2 sm:text-xs lg:max-h-none lg:grid-cols-1 lg:overflow-visible lg:pr-0 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#6FD3FF]/35 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-[#0B1D33]/55">
           {scenario.hazards.map((hazard, index) => (
             <div
-              className={`rounded-lg border px-3 py-2 font-semibold ${
+              className={`rounded-lg border px-3 py-2.5 font-semibold sm:py-2 ${
                 foundHazards.includes(hazard.id)
                   ? "border-[#6FD3FF]/45 bg-[#0A3D78]/45 text-[#DFF6FF]"
                   : "border-[#6FD3FF]/10 bg-[#06111F]/45 text-[#9FC3DD]"
