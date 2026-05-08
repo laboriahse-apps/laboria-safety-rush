@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941">
+  <defs>
+    <linearGradient id="wall" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#d8e2e8"/>
+      <stop offset="1" stop-color="#aebfcc"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#6f7f8b"/>
+      <stop offset="1" stop-color="#435563"/>
+    </linearGradient>
+  </defs>
+  <rect width="1672" height="520" fill="url(#wall)"/>
+  <path d="M0 520h1672v421H0z" fill="url(#floor)"/>
+  <path d="M0 520h1672" stroke="#637888" stroke-width="6"/>
+
+  <!-- exit and extinguisher -->
+  <rect x="70" y="78" width="240" height="330" rx="10" fill="#263746"/>
+  <rect x="94" y="106" width="192" height="54" rx="6" fill="#32ce74"/>
+  <text x="150" y="143" font-family="Arial" font-weight="900" font-size="34" fill="#fff">EXIT</text>
+  <rect x="82" y="182" width="216" height="226" fill="#3d5365"/>
+  <rect x="52" y="328" width="64" height="170" rx="24" fill="#c62c2c"/>
+  <rect x="64" y="302" width="40" height="34" rx="6" fill="#202a31"/>
+  <path d="M116 365c42 12 54 38 54 72" fill="none" stroke="#202a31" stroke-width="8"/>
+  <rect x="92" y="434" width="148" height="82" rx="8" fill="#9a6a3e"/>
+  <rect x="126" y="498" width="160" height="78" rx="8" fill="#b6814d"/>
+
+  <!-- workstation -->
+  <rect x="548" y="430" width="360" height="42" rx="10" fill="#6d4a2d"/>
+  <rect x="590" y="472" width="28" height="210" fill="#4d3422"/>
+  <rect x="836" y="472" width="28" height="210" fill="#4d3422"/>
+  <rect x="640" y="246" width="188" height="120" rx="10" fill="#16283a"/>
+  <rect x="662" y="268" width="144" height="74" rx="4" fill="#6fd3ff"/>
+  <rect x="706" y="366" width="56" height="60" fill="#263746"/>
+  <rect x="626" y="510" width="126" height="80" rx="12" fill="#2c4254"/>
+  <path d="M642 560h-58M736 560h72" stroke="#2c4254" stroke-width="18" stroke-linecap="round"/>
+  <text x="575" y="710" font-family="Arial" font-size="26" font-weight="900" fill="#dff6ff">Poor monitor height / chair position</text>
+
+  <!-- trailing cable -->
+  <path d="M180 710c120-38 205 32 330 8 98-18 152-62 248-28" fill="none" stroke="#151515" stroke-width="18" stroke-linecap="round"/>
+  <path d="M180 710c120-38 205 32 330 8 98-18 152-62 248-28" fill="none" stroke="#2f2f2f" stroke-width="10" stroke-linecap="round"/>
+  <rect x="1018" y="592" width="188" height="38" rx="12" fill="#1f2830"/>
+  <circle cx="1052" cy="611" r="9" fill="#e8f3f9"/>
+  <circle cx="1088" cy="611" r="9" fill="#e8f3f9"/>
+  <circle cx="1124" cy="611" r="9" fill="#e8f3f9"/>
+  <circle cx="1160" cy="611" r="9" fill="#e8f3f9"/>
+  <path d="M1088 630c-8 35-30 62-68 88" fill="none" stroke="#151515" stroke-width="8"/>
+
+  <!-- spill -->
+  <path d="M764 752c54-26 142-8 172 22 32 32 98 12 118 56-72 38-242 42-308 14-48-20-34-66 18-92z" fill="#6fd3ff" opacity=".45"/>
+  <path d="M804 790c58-14 112-8 158 18" stroke="#fff" stroke-width="6" opacity=".42" fill="none" stroke-linecap="round"/>
+
+  <!-- file cabinet -->
+  <rect x="1248" y="388" width="170" height="286" rx="10" fill="#465d70"/>
+  <rect x="1266" y="410" width="134" height="60" fill="#6d8292"/>
+  <rect x="1266" y="482" width="134" height="60" fill="#6d8292"/>
+  <rect x="1266" y="554" width="218" height="62" fill="#7c95a7"/>
+  <text x="1278" y="650" font-family="Arial" font-size="24" font-weight="900" fill="#dff6ff">Open drawer</text>
+
+  <!-- boxes -->
+  <rect x="1420" y="600" width="124" height="92" rx="8" fill="#a97943"/>
+  <rect x="1518" y="560" width="110" height="86" rx="8" fill="#b98750" transform="rotate(8 1573 603)"/>
+  <rect x="1458" y="508" width="112" height="86" rx="8" fill="#966338" transform="rotate(-5 1514 551)"/>
+  <path d="M1438 642h86M1474 550h64" stroke="#55351e" stroke-width="5"/>
+
+  <!-- furniture and office background -->
+  <rect x="1010" y="150" width="580" height="54" rx="8" fill="#0a3d78"/>
+  <rect x="1070" y="204" width="24" height="230" fill="#0a3d78"/>
+  <rect x="1505" y="204" width="24" height="230" fill="#0a3d78"/>
+  <rect x="1056" y="232" width="450" height="170" fill="#dff6ff" opacity=".3"/>
+  <rect x="1082" y="260" width="92" height="112" fill="#fff" opacity=".78"/>
+  <rect x="1212" y="260" width="92" height="112" fill="#fff" opacity=".78"/>
+  <rect x="1344" y="260" width="92" height="112" fill="#fff" opacity=".78"/>
+</svg>

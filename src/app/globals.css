@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #06111f;
+  --foreground: #dff6ff;
+  --laboria-bg: #06111f;
+  --laboria-panel: #0b1d33;
+  --laboria-primary: #0a3d78;
+  --laboria-accent: #6fd3ff;
+  --laboria-text: #dff6ff;
+  --laboria-muted: #9fc3dd;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--laboria-accent);
+  color: var(--laboria-bg);
+}
+
+@keyframes feedback-float {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  14%,
+  78% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
 }
